@@ -15,6 +15,7 @@ body {
  
  
 body::before {
+    background-image: url("../img/8801cfefbe0eaf4b394bcd29b1785d17.jpg");
     background-repeat: no-repeat;
     background-position: right;
     content: "";
