@@ -3,7 +3,10 @@ let numeroLimite = 20;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
  
-
+function exibirTextoNaTela(tag, texto) {
+    let campo = document.querySelector(tag);
+    campo.innerHTML = texto;
+}
  
 function verificarChute() {
     let chute = document.querySelector('input').value;
