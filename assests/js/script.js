@@ -6,11 +6,23 @@ let tentativas = 1;
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
+    // Removendo a narração
+    // responsiveVoice.speak(texto, 'Brazilian Portuguese Female', { rate: 1.2 });
 }
  
 function verificarChute() {
     let chute = document.querySelector('input').value;
     console.log(numeroSecreto);
+ 
+    if (chute === "") {
+        exibirTextoNaTela('p', 'Por favor, insira um número.');
+        return;
+    }
+ 
+    if (chute > numeroLimite) {
+        exibirTextoNaTela('p', 'Por favor, insira um número menor que 20.');
+        return;
+    }
  
     if (chute == numeroSecreto) {
         exibirTextoNaTela('h1', 'Acertou!');
@@ -62,7 +74,7 @@ function reiniciarJogo() {
     limparCampo();
     tentativas = 1;
     exibirTextoNaTela('h1', 'Adivinhe o <span class="container__texto-azul">numero secreto</span>');
-    exibirTextoNaTela('p', 'Escolha um número entre 1 a 10');
+    exibirTextoNaTela('p', 'Escolha um número entre 1 a 20');
     document.getElementById('reiniciar').setAttribute('disabled', true);
     document.getElementById('chute').removeAttribute('disabled'); // Habilita o campo de entrada
 }
